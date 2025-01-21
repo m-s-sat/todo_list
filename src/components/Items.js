@@ -8,7 +8,6 @@ function Additems({text,id,deleteToDo,upBtn,downBtn,isDone,completed_item,comple
             completed_item(id);
         }
     }
-    const year = ["Jan","Fab","March","April","May","June","July","Aug","Sept","Oct","Nov","Dec"];
     return (
         <div className='list-container'>
             <div className='lists' onClick={()=>isDone(id)} style={{backgroundColor:done&&'#00693E', color:done&&'white'}}>
