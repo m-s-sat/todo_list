@@ -1,0 +1,41 @@
+.list-container{
+    margin: 1em;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.lists{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1px;
+    padding-left: 10px;
+    margin: 1em;
+    border: 1px solid black;
+    border-radius: 7px;
+    min-height: 4vh;
+    min-width: 70%;
+    background-color: rgba(204, 82, 82,0.5);
+    cursor: pointer;
+    border: 2px solid black;
+    font-size: 18px;
+}
+.lists:hover{
+    background-color: rgba(52, 165, 52, 0.5);
+}
+button{
+    height: 4vh;
+    margin: 1em;
+    border-radius: 7px;
+    padding: 2px;
+    cursor: pointer;
+    min-width: 40px;
+    border: 2px solid black;
+    font-size: 16px;
+}
+.date-container{
+    padding-right: 10px;
+}
