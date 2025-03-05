@@ -7,8 +7,10 @@ import './App.css';
 function App() {
   const [data,setData] = useState(DataDB);
   const [count,setCount] = useState(0);
+  const [editableData, setEditableData] = useState(null);
+  const [ID,setID] = useState(-1);
   function dataset(content,done){
-    setData([...data, {id:data.length+1,content,done}]);
+    setData([...data, {id:data.length+1, content, done}]);
   }
   function deleteToDo(id,done){
     const newData = data.filter((datas)=>datas.id!==id);
@@ -57,16 +59,25 @@ function App() {
     setData(newData);
     setCount(count-1);
   }
-  
+  function update(id){
+    setID(id);
+    setEditableData(data[id-1]);
+  }
+  function updateData(datas){
+    const newData = [...data];
+    newData[ID-1].content = datas;
+    setData(newData);
+    console.log(localStorage);
+  }
   return (
     <div className="App">
       <div className='main-heading-container'>
         <h1 className='main-heading'>To Do List</h1>
       </div>
       <div className='items-list'>
-        <Submitfield additems={dataset} total={data.length} completed={count}></Submitfield>
+        <Submitfield additems={dataset} setEditableData={setEditableData} editableData={editableData} total={data.length} completed={count} updateData={updateData}></Submitfield>
         {data.map((data)=>(
-          <Items key={data.id} text={data.content} done = {data.done} deleteToDo={deleteToDo} id={data.id} upBtn={upBtn} downBtn={downBtn} completed_item={add_completed_item} completed_item2={subtract_completed_item2}></Items>
+          <Items key={data.id} update={update} text={data.content} done = {data.done} deleteToDo={deleteToDo} id={data.id} upBtn={upBtn} downBtn={downBtn} completed_item={add_completed_item} completed_item2={subtract_completed_item2}></Items>
         ))}
       </div>
     </div>
